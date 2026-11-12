@@ -1,0 +1,107 @@
+
+import random
+from pathlib import Path
+
+import numpy as np
+import pandas as pd
+import torch
+
+from neural_network.model import NeuralNetwork, train_model
+from neural_network.nn_experiments import load_dataset
+
+
+RANDOM_STATE = 42
+
+project_root = Path(__file__).resolve().parent.parent
+data_path = project_root / "data" / "sentiment_train.csv"
+results_dir = project_root / "results"
+results_dir.mkdir(exist_ok=True)
+
+
+def run_architecture_experiments():
+
+    X_train, X_val, y_train, y_val = load_dataset(data_path)
+
+    architectures = {
+        "small": (64,),
+        "medium": (128, 64),
+        "baseline": (256, 64),
+        "large": (512, 256),
+        "deep": (256, 128, 64)
+    }
+
+    summaries = []
+
+    for name, hidden_layers in architectures.items():
+
+        random.seed(RANDOM_STATE)
+        np.random.seed(RANDOM_STATE)
+        torch.manual_seed(RANDOM_STATE)
+
+        print(f"\nTesting sentiment architecture: {name}")
+        print(f"Hidden layers: {hidden_layers}\n")
+
+        model = NeuralNetwork(
+            input_size=768,
+            num_classes=3,
+            hidden_layers=hidden_layers,
+            dropout=0.5
+        )
+
+        history = train_model(
+            model=model,
+            X_train=X_train,
+            y_train=y_train,
+            X_val=X_val,
+            y_val=y_val,
+            epochs=20,
+            batch_size=64,
+            learning_rate=0.001,
+            weight_decay=0.0
+        )
+
+        history_df = pd.DataFrame(history)
+
+        history_df.insert(
+            0, "epoch", range(1, len(history_df) + 1)
+        )
+
+        history_df.insert(0, "architecture", name)
+
+        history_df.to_csv(
+            results_dir / f"nn_sentiment_architecture_{name}.csv",
+            index=False
+        )
+
+        best_index = history_df["val_accuracy"].idxmax()
+
+        summaries.append({
+            "architecture": name,
+            "hidden_layers": str(hidden_layers),
+            "best_epoch": int(
+                history_df.loc[best_index, "epoch"]
+            ),
+            "best_val_accuracy": float(
+                history_df.loc[best_index, "val_accuracy"]
+            ),
+            "train_accuracy_at_best_epoch": float(
+                history_df.loc[best_index, "train_accuracy"]
+            ),
+            "val_loss_at_best_epoch": float(
+                history_df.loc[best_index, "val_loss"]
+            )
+        })
+
+    summary_df = pd.DataFrame(summaries)
+
+    summary_df.to_csv(
+        results_dir / "nn_sentiment_architecture_summary.csv",
+        index=False
+    )
+
+    print("\nSentiment Architecture Experiment Summary:")
+    print(summary_df.to_string(index=False))
+
+
+if __name__ == "__main__":
+    run_architecture_experiments()

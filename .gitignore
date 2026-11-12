@@ -1,0 +1,24 @@
+
+# Python virtual environment
+.venv/
+venv/
+
+# Python cache
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# macOS files
+.DS_Store
+
+# Kaggle datasets
+data/*.csv
+
+# Trained neural network checkpoints
+*.pth
+
+# Archived neural network experiment results
+results/nn_archive/
+
+# VS Code local settings
+.vscode/

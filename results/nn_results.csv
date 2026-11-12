@@ -1,0 +1,40 @@
+dataset,experiment,hidden_layers,dropout,learning_rate,weight_decay,normalization,epochs,best_epoch,best_val_accuracy,train_accuracy_at_best_epoch,val_loss_at_best_epoch,source_file
+image,architecture_baseline,"(256, 64)",0.0,0.001,0.0,standard,20,20,0.33550000190734863,1.0,4.981297492980957,nn_image_architecture_baseline.csv
+image,architecture_deep,"(256, 128, 64)",0.0,0.001,0.0,standard,20,20,0.31349998712539673,1.0,6.826076030731201,nn_image_architecture_deep.csv
+image,architecture_large,"(512, 256)",0.0,0.001,0.0,standard,20,15,0.37975001335144043,1.0,4.194943904876709,nn_image_architecture_large.csv
+image,architecture_medium,"(128, 64)",0.0,0.001,0.0,standard,20,5,0.3127500116825104,0.57075,2.8059778213500977,nn_image_architecture_medium.csv
+image,architecture_small,"(64,)",0.0,0.001,0.0,standard,20,6,0.2980000078678131,0.5255625,2.803309440612793,nn_image_architecture_small.csv
+image,baseline,"(256, 64)",0.0,0.001,0.0,standard,20,20,0.33550000190734863,1.0,4.981297492980957,nn_image_baseline.csv
+image,dropout_0.2,"(256, 64)",0.2,0.001,0.0,standard,20,16,0.3255000114440918,0.671875,3.0100185871124268,nn_image_dropout_0.2.csv
+image,dropout_0.3,"(256, 64)",0.3,0.001,0.0,standard,20,14,0.3230000138282776,0.5073125,2.733959674835205,nn_image_dropout_0.3.csv
+image,dropout_0.5,"(256, 64)",0.5,0.001,0.0,standard,20,18,0.29350000619888306,0.320125,2.7499454021453857,nn_image_dropout_0.5.csv
+image,lr_0.0001,"(512, 256)",0.0,0.0001,0.0,standard,20,18,0.3487499952316284,0.8401875,2.613924264907837,nn_image_lr_0.0001.csv
+image,lr_0.001,"(512, 256)",0.0,0.001,0.0,standard,20,15,0.37975001335144043,1.0,4.194943904876709,nn_image_lr_0.001.csv
+image,lr_0.01,"(512, 256)",0.0,0.01,0.0,standard,20,6,0.11599999666213989,0.133875,3.656147003173828,nn_image_lr_0.01.csv
+image,normalization_l2,"(512, 256)",0.0,0.001,0.001,l2,20,18,0.2554999887943268,0.328625,2.814049243927002,nn_image_normalization_l2.csv
+image,normalization_none,"(512, 256)",0.0,0.001,0.001,none,20,18,0.2529999911785126,0.326375,2.8129525184631348,nn_image_normalization_none.csv
+image,normalization_standard,"(512, 256)",0.0,0.001,0.001,standard,20,17,0.39024999737739563,1.0,2.775308132171631,nn_image_normalization_standard.csv
+image,wd_0.0,"(512, 256)",0.0,0.001,0.0,standard,20,15,0.37975001335144043,1.0,4.194943904876709,nn_image_wd_0.0.csv
+image,wd_0.0001,"(512, 256)",0.0,0.001,0.0001,standard,20,17,0.3812499940395355,1.0,3.636716842651367,nn_image_wd_0.0001.csv
+image,wd_0.001,"(512, 256)",0.0,0.001,0.001,standard,20,17,0.39024999737739563,1.0,2.775308132171631,nn_image_wd_0.001.csv
+image,wd_0.01,"(512, 256)",0.0,0.001,0.01,standard,20,20,0.3177500069141388,0.59925,2.58778977394104,nn_image_wd_0.01.csv
+sentiment,architecture_baseline,"(256, 64)",0.5,0.001,0.0,standard,20,5,0.6704166531562805,0.7075,0.7590170502662659,nn_sentiment_architecture_baseline.csv
+sentiment,architecture_deep,"(256, 128, 64)",0.5,0.001,0.0,standard,20,18,0.6725000143051147,0.7890625,0.8427951335906982,nn_sentiment_architecture_deep.csv
+sentiment,architecture_large,"(512, 256)",0.5,0.001,0.0,standard,20,10,0.6758333444595337,0.78125,0.8150431513786316,nn_sentiment_architecture_large.csv
+sentiment,architecture_medium,"(128, 64)",0.5,0.001,0.0,standard,20,2,0.6654166579246521,0.6607291666666667,0.7608383297920227,nn_sentiment_architecture_medium.csv
+sentiment,architecture_small,"(64,)",0.5,0.001,0.0,standard,20,12,0.6737499833106995,0.7592708333333333,0.7900878190994263,nn_sentiment_architecture_small.csv
+sentiment,baseline,"(256, 64)",0.0,0.001,0.0,standard,20,1,0.6587499976158142,0.6397916666666666,0.7589954137802124,nn_sentiment_baseline.csv
+sentiment,dropout_0.0,"(256, 64)",0.0,0.001,0.0,standard,20,1,0.6587499976158142,0.6397916666666666,0.7589954137802124,nn_sentiment_dropout_0.0.csv
+sentiment,dropout_0.2,"(256, 64)",0.2,0.001,0.0,standard,20,4,0.6666666865348816,0.751875,0.8019809722900391,nn_sentiment_dropout_0.2.csv
+sentiment,dropout_0.3,"(256, 64)",0.3,0.001,0.0,standard,20,2,0.6645833253860474,0.6901041666666666,0.7691223621368408,nn_sentiment_dropout_0.3.csv
+sentiment,dropout_0.5,"(256, 64)",0.5,0.001,0.0,standard,20,5,0.6704166531562805,0.7075,0.7590170502662659,nn_sentiment_dropout_0.5.csv
+sentiment,lr_0.0001,"(512, 256)",0.5,0.0001,0.0,standard,20,20,0.6737499833106995,0.8389583333333334,0.8728191256523132,nn_sentiment_lr_0.0001.csv
+sentiment,lr_0.001,"(512, 256)",0.5,0.001,0.0,standard,20,10,0.6758333444595337,0.78125,0.8150431513786316,nn_sentiment_lr_0.001.csv
+sentiment,lr_0.01,"(512, 256)",0.5,0.01,0.0,standard,20,1,0.5620833039283752,0.5153125,0.9309599995613098,nn_sentiment_lr_0.01.csv
+sentiment,normalization_l2,"(512, 256)",0.5,0.001,0.0,l2,20,20,0.6741666793823242,0.76625,0.803192675113678,nn_sentiment_normalization_l2.csv
+sentiment,normalization_none,"(512, 256)",0.5,0.001,0.0,none,20,17,0.6679166555404663,0.7508333333333334,0.7984777688980103,nn_sentiment_normalization_none.csv
+sentiment,normalization_standard,"(512, 256)",0.5,0.001,0.0,standard,20,10,0.6758333444595337,0.78125,0.8150431513786316,nn_sentiment_normalization_standard.csv
+sentiment,wd_0.0,"(512, 256)",0.5,0.001,0.0,standard,20,10,0.6758333444595337,0.78125,0.8150431513786316,nn_sentiment_wd_0.0.csv
+sentiment,wd_0.0001,"(512, 256)",0.5,0.001,0.0001,standard,20,6,0.6645833253860474,0.7401041666666667,0.7822459936141968,nn_sentiment_wd_0.0001.csv
+sentiment,wd_0.001,"(512, 256)",0.5,0.001,0.001,standard,20,6,0.6708333492279053,0.7251041666666667,0.7742639780044556,nn_sentiment_wd_0.001.csv
+sentiment,wd_0.01,"(512, 256)",0.5,0.001,0.01,standard,20,10,0.6650000214576721,0.6854166666666667,0.7634172439575195,nn_sentiment_wd_0.01.csv
